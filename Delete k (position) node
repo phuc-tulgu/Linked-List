@@ -1,0 +1,92 @@
+#include<iostream>
+
+using namespace std;
+
+struct node{
+	int data;
+	struct node *next;
+};
+typedef struct node node;
+typedef node* nodee;
+
+struct list{
+	nodee head;
+	nodee tail;
+};
+typedef struct list list;
+typedef list* listt;
+
+listt create_list(list &l){
+	l.head = l.tail =NULL;
+}
+
+nodee create_node(int x){
+	nodee p = new node;
+	if( p == NULL )		return NULL;
+	else {
+		p -> data = x;
+	p -> next = NULL;
+	return p;
+	}
+}
+
+void add_tail(list &l, nodee p){
+	if(l.head == NULL)	l.tail = l.head = p;
+	else {
+		l.tail -> next = p;
+		l.tail = p;
+	}
+}
+
+void in_put(list &l){
+	int n;
+	cout << "Enter n node to create : ";
+	cin >> n;
+	create_list(l);
+	for( int i = 1 ; i <= n; i++ ){
+		int x;
+		cout << "Enter elements "<<i<<" value :   ";
+		cin >> x;
+		nodee p = create_node(x);
+		add_tail(l,p);	
+	}
+}
+
+void out_put(list &l){
+	for ( nodee p = l.head; p; p = p -> next ){
+		cout << p -> data << "\t";
+	}
+}
+
+void delete_node(list &l){
+	int k;
+	cout << "Enter k postion node u want to delete: ";
+	cin >> k;
+	nodee p = l.head;
+	//Th1:Xoa o dau
+	if( k == 0 ){
+		nodee q = p;	//q la node tao ra de xoa
+		l.head = p -> next;
+		delete (q);	//Nho phai dong ngoac
+	}
+	else {
+		for( int i = 0; i < k-1; i++){	//day la vi tri nen dat = 0
+			p = p -> next;	//p se chay den node ben canh ben tay trai cua node can xoa
+		}
+	}
+	nodee q = p -> next;
+	p -> next = p -> next -> next;
+	/*
+	Vi sao lai 2 lan next ?	Boi vi la node ben canh node can xoa se nhay qua node can xoa roi tro den node ben canh
+	=> Node do next next hai lan`.
+	*/
+	delete (q);
+}
+
+
+int main(){
+	list l;
+	in_put(l);
+	delete_node(l);
+	out_put(l);
+}
