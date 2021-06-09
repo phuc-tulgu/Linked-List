@@ -70,7 +70,7 @@ void delete_node(list &l){
 		delete (q);	//Nho phai dong ngoac
 	}
 	else {
-		for( int i = 0; i < k-1; i++){	//day la vi tri nen dat = 0
+		for( int i = 1; i < k; i++){	//day la vi tri nen dat = 0
 			p = p -> next;	//p se chay den node ben canh ben tay trai cua node can xoa
 		}
 	}
