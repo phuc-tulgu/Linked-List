@@ -25,8 +25,8 @@ nodee create_node(int x){
 	if( p == NULL )		return NULL;
 	else {
 		p -> data = x;
-	p -> next = NULL;
-	return p;
+		p -> next = NULL;
+		return p;
 	}
 }
 
@@ -45,7 +45,7 @@ void in_put(list &l){
 	create_list(l);
 	for( int i = 1 ; i <= n; i++ ){
 		int x;
-		cout << "Enter elements "<<i<<" value :   ";
+		cout << "Enter elements ["<<i<<"] postion ["<<i-1<<"] value :   ";
 		cin >> x;
 		nodee p = create_node(x);
 		add_tail(l,p);	
