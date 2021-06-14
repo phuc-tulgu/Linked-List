@@ -1,6 +1,6 @@
 NHỮNG BƯỚC ĐỂ KHỞI TẠO MỘT DANH SÁCH LIÊN KẾT
-1.Khởi tạo một struct node
-2.Khởi tạo một struct list
-3.Tao list
-4.Tao node
-5.In ra man hinh
+1.Khởi tạo một struct node - Khai báo typedef
+2.Khởi tạo một struct list - Khai báo typedef
+3.Tạo list (nodee)
+4.Tạo node (listt)
+5.Hàm thêm node vào cuối (nên dùng thêm vào cuối nhé vì bài tập sẽ dễ hơn )
