@@ -1,0 +1,88 @@
+#include<iostream>
+
+using namespace std;
+
+struct node{
+	int data;
+	struct node *next;
+};
+typedef struct node node;
+typedef struct node* nodee;
+
+struct list{
+	nodee tail;
+	nodee head;
+};
+typedef struct list list;
+typedef struct list* listt;
+
+listt create_list(list &l){
+	l.head = l.tail = NULL;
+}
+
+nodee create_node(int x){
+	nodee p = new node;
+	if( p == NULL )	return NULL;
+	else {
+		p -> data = x;
+		p -> next = NULL; 
+		return p;
+	}
+}
+
+void add_tail(list &l, nodee p){
+	if( l.head == NULL )	l.head = l.tail = p;
+	else {
+		l.tail -> next = p;
+		l.tail = p;
+	}
+}
+
+void in_put(list &l){
+	int n;
+	cout << "Enter numbers(s) of node to create: ";
+	cin >> n;
+	create_list(l);
+	for(int i = 0; i < n; i++){
+		int index;
+		cout << "Enter value of node(s) ["<<i<<"] :";
+		cin >> index;
+		nodee p = create_node(index);	//sao lai dat nodee p = boi vi neu ma dat node p thi khai bao cai duoi moi chay duoc
+		add_tail(l,p);
+	}
+}
+
+void out_put(list l){
+	for( nodee p = l.head; p; p = p->next){
+		cout << " " << p-> data;
+	}
+}
+
+void ChangeValue(list &l){
+    // Thay doi cac gia t? b thanh c
+    if (l.head == NULL){
+        cout << "Khong co gia tri nao de thay doi!!";
+        return;
+    }
+    else {
+    int b,c;
+    cout << "Nhap vao gia tri can thay doi: b = " ;
+    cin >> b;
+    cout << "Thay doi thanh gia tri c = " ;
+    cin >> c;
+    for (nodee i = l.head; i != NULL ; i = i->next){
+       if(i->data == b){
+           i->data = c;
+       }
+    }
+    out_put(l);   
+	}
+}
+
+int main(){
+	list(l);
+	in_put(l);
+	//convert(l);
+	out_put(l);
+	ChangeValue(l);	
+}
