@@ -70,9 +70,9 @@ void ChangeValue(list &l){
     cin >> b;
     cout << "Thay doi thanh gia tri c = " ;
     cin >> c;
-    for (nodee i = l.head; i != NULL ; i = i->next){
-       if(i->data == b){
-           i->data = c;
+    for (nodee p = l.head; p != NULL ; p = p->next){
+       if(p->data == b){
+           p->data = c;
        }
     }
     out_put(l);   
