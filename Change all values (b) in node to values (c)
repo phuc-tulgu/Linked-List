@@ -84,5 +84,5 @@ int main(){
 	in_put(l);
 	//convert(l);
 	out_put(l);
-	ChangeValue(l);	
+	ChangeValue(l);	 
 }
