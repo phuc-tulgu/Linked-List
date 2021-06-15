@@ -1,0 +1,104 @@
+#include<iostream>
+
+using namespace std;
+
+struct node{
+	int data;
+	struct node *next;
+};
+typedef struct node node;
+typedef struct node* nodee;
+
+struct list{
+	nodee tail;
+	nodee head;
+};
+typedef struct list list;
+typedef struct list* listt;
+
+listt create_list(list &l){
+	l.tail = l.head = NULL;
+}
+
+nodee create_node(int x){
+	nodee q = new node;
+	//Cho nay thieu
+	if( q == NULL )		return NULL;
+	else {
+		q -> data = x;
+		q -> next = NULL;
+		return q;
+	}
+}
+
+void add_tail(list &l, nodee q){
+	if( l.head == NULL )	l.head = l.tail = q;
+	else {
+		l.tail -> next = q;
+		l.tail = q;
+	}
+}
+
+void in_put(list &l){
+	int n;
+	cout << "Enter number(s) of node to create: ";
+	cin >> n;
+	//Nen nho phai khai bao ham khoi tao danh sach trong ham nhap
+	create_list(l);
+	for ( int i = 0; i < n; i++){
+		int index;
+		cout << "Enter value(s) of node ["<<i<<"] : ";
+		cin >> index;
+		nodee q = create_node(index);
+		add_tail(l,q);
+	}
+}
+
+void out_put(list l){
+	for( nodee q = l.head; q; q = q -> next){
+		cout << " " << q -> data;
+	}
+}
+
+//ham convert a to b
+nodee convert(list &l){
+	if( l.head == NULL ){
+		cout << "No value you are looking for :( ";
+		return NULL;
+	}
+	else {
+		int a, b;
+		cout << "Enter value(s) need to be changed: ";
+		cin >> a;
+		cout << "Enter value to change: ";
+		cin >> b;
+		for( nodee q = l.head; q; q = q -> next){
+			if(q -> data == a){
+				q -> data = b;				
+			}
+		}
+	}
+}
+
+nodee delete_bigger_node(list &l){
+	int k;
+	cout << "Enter a number to delete node bigger than its number: ";
+	cin >> k;
+	for ( nodee p = l.head; p; p = p -> next){
+		if( p -> data >= k){
+			continue;
+		}
+		else {
+			cout << " " << p -> data;
+		}
+	}
+	//out_put(l);
+}
+
+int main(){
+	list(l);
+	in_put(l);
+//	convert(l);
+	delete_bigger_node(l);
+//	out_put(l);	
+}
