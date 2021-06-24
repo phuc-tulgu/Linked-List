@@ -1,7 +1,7 @@
 NHỮNG BƯỚC ĐỂ KHỞI TẠO MỘT DANH SÁCH LIÊN KẾT
 1.Khởi tạo một struct node - Khai báo typedef
 2.Khởi tạo một struct list - Khai báo typedef
-3.Tạo list (nodee)
+3.Tạo list (nodee) - Hai node đầu cuối bằng NULL là xong má đừng loằng ngoằng nữa ))
 4.Tạo node (listt)
 5.Hàm thêm node vào cuối (nên dùng thêm vào cuối nhé vì bài tập sẽ dễ hơn )
 6.Làm hàm nhập (Hàm nhập này tham chiếu chỉ cần danh sách còn node thì sẽ tạo bên trong luôn) - đừng quên khai báo hàm khởi tạo danh sách nhé
